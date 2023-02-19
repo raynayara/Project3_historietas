@@ -7,4 +7,8 @@ public class personagens {
         this.nome = nome;
         this.vida = vida;
     }
+
+    public void alteracaoVida(int alteracaoVida) {
+        this.vida -= alteracaoVida;
+    }
 }

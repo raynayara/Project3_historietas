@@ -20,6 +20,7 @@ public class Capitulo1 {
         this.object = object;
     }
 
+    //Metodo mostrar, ao ser chamado a função vai mostrar tudo que estiver dentro dele ou seja, dentro de cada capitulo.
     void mostrar() {
         System.out.println(this.nome);
         System.out.println(this.texto);
@@ -28,13 +29,14 @@ public class Capitulo1 {
     }
 
     int escolher() {
-        int escolha = -1;
+        int escolha = 1;
         if (this.escolha1 != null && this.escolha2 != null) {
             String escolhas = this.object.nextLine();
             if (escolhas.equals(this.escolha1)) {
-                escolha = 1;
+                return 1;
+
             } else if (escolhas.equals(this.escolha2)) {
-                escolha = 2;
+                return 2;
             }
         }
 
