@@ -26,8 +26,8 @@ public class App {
                 "\nele encontra uma criatura monstruosa que está tentando roubar suas porções."+
                 "\nPara escapar, ele precisa usar algumas de suas porções extras e tentar fugir."+
                 "\nUma de suas porçoes pode matar a criatura em alguns segundos.",
-                "\n(porção 1) Ataque calice de fogo", 
-                "(porção 2) Ataque garras do inferno", 
+                new String[]{"\n(porção 1) Ataque calice de fogo", 
+                "(porção 2) Ataque garras do inferno"}, 
                 criatura, 
                 0, 
                 object);
@@ -38,14 +38,14 @@ public class App {
             System.out.println(criatura.nome + " leva 50 de dano");
             criatura.vida -= 50 ;
             System.out.println(criatura.nome + " está debilitada após o feitiço lhe tirar 50% de vida");
-            System.out.println(criatura.vida);
+            System.out.println("Total de vida restante "+criatura.vida);
 
         
         } else if (ataque == 2) {
             System.out.println(criatura.nome + " leva 100 de dano.");
             criatura.vida -= 100;
             System.out.println("Você acertou a porção de maior dano e matou a " + criatura.nome + ".");
-            System.out.println(criatura.vida);
+            System.out.println("Total de vida restante "+criatura.vida);
 
         }
         System.out.println("Pepe consegue enganar a morte e logo consegue realizar sua entrega.\n\n");
@@ -54,8 +54,8 @@ public class App {
                 "Para chegar até a casa de seu amigo Pepe, Marilu terá de passar pelo caminho perdido."+
                 "\nEsté caminho é rodeado de armadilhas e criaturas monstruosas, ajude-a a atravessar e chegar até a casa de Pepe."+
                 "\nPor qual caminho você aconselha Marilu a ir?",
-                "caminho 1?", 
-                "caminho 2?", 
+                new String[]{"caminho 1?", 
+                "caminho 2?"}, 
                 player2, 
                 0, 
                 object);
@@ -79,8 +79,8 @@ public class App {
                 "\ndurante sua caminhada ela encontra uma feiticeira que lhe oferece duas porções mágicas."+ 
                 "\nA primeira porção lhe dará o poder de voar e a segunda porção lhe dará o poder da cura."+
                 "\nQual delas Marilu deve escolher?",
-                "porção 1?", 
-                "porção 2?", 
+                new String[]{"porção 1?", 
+                "porção 2?"}, 
                 player2, 
                 0, 
                 object);

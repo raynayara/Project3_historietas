@@ -3,18 +3,17 @@ import java.util.Scanner;
 public class Capitulo1 {
     String nome;
     String texto;
-    String escolha1;
-    String escolha2;
+    String[] escolhas;
     personagens personagens;
     int alteracaoVida;
     Scanner object;
 
-    Capitulo1(String nome, String texto, String escolha1, String escolha2, personagens personagens, int alteracaoVida,
+    //construtor
+    Capitulo1(String nome, String texto, String[] escolhas, personagens personagens, int alteracaoVida,
             Scanner object) {
         this.nome = nome;
         this.texto = texto;
-        this.escolha1 = escolha1;
-        this.escolha2 = escolha2;
+        this.escolhas = escolhas;
         this.personagens = personagens;
         this.alteracaoVida = alteracaoVida;
         this.object = object;
@@ -24,22 +23,41 @@ public class Capitulo1 {
     void mostrar() {
         System.out.println(this.nome);
         System.out.println(this.texto);
-        System.out.println(this.escolha1);
-        System.out.println(this.escolha2);
+        System.out.println(this.escolhas);
+        
+        
+    if (this.escolhas != null){
+        for (String escolha : escolhas) {
+            System.out.println(escolha);
+        }
+        System.out.println();
     }
 
+    }
+    
     int escolher() {
-        int escolha = 1;
-        if (this.escolha1 != null && this.escolha2 != null) {
-            String escolhas = this.object.nextLine();
-            if (escolhas.equals(this.escolha1)) {
-                return 1;
+        int retorno = -1;
+        if (this.escolhas != null) 
+        {
+            while (retorno == -1)
+            {
+                System.out.print("Faça a sua escolha: ");
+                String escolhasUsuario = this.object.nextLine();
+                
+                int retornoInicial = 0;
+                for (String escolha : escolhas)
+                {
+                    if (escolhas.equals(this.escolhas)) 
+                    {
+                    retorno = retornoInicial;
+                    retornoInicial ++;
+                    }
+                }
 
-            } else if (escolhas.equals(this.escolha2)) {
-                return 2;
             }
-        }
+                System.out.println();
 
-        return escolha;
+        }          
+            return retorno;
     }
 }
