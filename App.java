@@ -26,11 +26,44 @@ public class App {
                 "\nele encontra uma criatura monstruosa que está tentando roubar suas porções."+
                 "\nPara escapar, ele precisa usar algumas de suas porções extras e tentar fugir."+
                 "\nUma de suas porçoes pode matar a criatura em alguns segundos.",
-                new String[]{"\n(porção 1) Ataque calice de fogo", 
-                "(porção 2) Ataque garras do inferno"}, 
                 criatura, 
                 0, 
                 object);
+
+        Capitulo1 capitulo02 = new Capitulo1("Capitulo 2: O caminho perdido",
+                "Para chegar até a casa de seu amigo Pepe, Marilu terá de passar pelo caminho perdido."+
+                "\nEsté caminho é rodeado de armadilhas e criaturas monstruosas, ajude-a a atravessar e chegar até a casa de Pepe."+
+                "\nPor qual caminho você aconselha Marilu a ir?",   
+                player2, 
+                0, 
+                object);
+
+        Capitulo1 capitulo03 = new Capitulo1("Capitulo 3: o encontro",
+                "Após passar pelo caminho perdido Marilu está quase chegando na casa de Pepe, mas "+
+                "\ndurante sua caminhada ela encontra uma feiticeira que lhe oferece duas porções mágicas."+ 
+                "\nA primeira porção lhe dará o poder de voar e a segunda porção lhe dará o poder da cura."+
+                "\nQual delas Marilu deve escolher?",
+                player2, 
+                0, 
+                object);    
+                
+        Capitulo1 capitulo04 = new Capitulo1("Capitulo 4: O Final",
+                "Durante toda essa aventura, Pepe e Marilu se divertiram muito e "+
+                "aprenderam a trabalhar em equipe e nunca desistir dos seus objetivos!",
+                player2, 
+                0, 
+                object);        
+
+        //ESCOLHAS
+        capitulo01.escolhas.add(new Escolha("(porção 1) Ataque calice de fogo",capitulo02));
+        capitulo01.escolhas.add(new Escolha("(porção 2) Ataque garras do inferno",capitulo02));
+        capitulo02.escolhas.add(new Escolha("caminho 1",capitulo03));
+        capitulo02.escolhas.add(new Escolha("caminho 2",capitulo03));
+        capitulo03.escolhas.add(new Escolha("porção 1",capitulo04));
+        capitulo03.escolhas.add(new Escolha("porção 2",capitulo04));
+        
+        Capitulo1 raiz = capitulo01;
+
 
         capitulo01.mostrar();
         int ataque = capitulo01.escolher();
@@ -50,16 +83,7 @@ public class App {
         }
         System.out.println("Pepe consegue enganar a morte e logo consegue realizar sua entrega.\n\n");
         
-        Capitulo1 capitulo02 = new Capitulo1("Capitulo 2: O caminho perdido",
-                "Para chegar até a casa de seu amigo Pepe, Marilu terá de passar pelo caminho perdido."+
-                "\nEsté caminho é rodeado de armadilhas e criaturas monstruosas, ajude-a a atravessar e chegar até a casa de Pepe."+
-                "\nPor qual caminho você aconselha Marilu a ir?",
-                new String[]{"caminho 1?", 
-                "caminho 2?"}, 
-                player2, 
-                0, 
-                object);
-
+        
         capitulo02.mostrar();
         int res = capitulo02.escolher();
         if (res == 1) {
@@ -73,18 +97,7 @@ public class App {
             System.out.println(player2.nome + " está com " + player2.vida + "% de vida restante.\n");
         }
 
-
-        Capitulo1 capitulo03 = new Capitulo1("Capitulo 3: o encontro",
-                "Após passar pelo caminho perdido Marilu está quase chegando na casa de Pepe, mas "+
-                "\ndurante sua caminhada ela encontra uma feiticeira que lhe oferece duas porções mágicas."+ 
-                "\nA primeira porção lhe dará o poder de voar e a segunda porção lhe dará o poder da cura."+
-                "\nQual delas Marilu deve escolher?",
-                new String[]{"porção 1?", 
-                "porção 2?"}, 
-                player2, 
-                0, 
-                object);
-
+        
         capitulo03.mostrar();
         int poder = capitulo03.escolher();
         if (poder == 1) {
@@ -98,6 +111,13 @@ public class App {
                     + "% e agora pode chegar até a casa de Pepe em segurança.");
         }
 
+    
+        capitulo04.mostrar();
+
+        
+
+
+        raiz.mostrar();
         object.close();
     }
 }

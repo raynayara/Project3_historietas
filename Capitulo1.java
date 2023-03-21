@@ -1,22 +1,23 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Capitulo1 {
     String nome;
     String texto;
-    String[] escolhas;
+    ArrayList<Escolha> escolhas;
     personagens personagens;
     int alteracaoVida;
     Scanner object;
 
     //construtor
-    Capitulo1(String nome, String texto, String[] escolhas, personagens personagens, int alteracaoVida,
+    Capitulo1(String nome, String texto, personagens personagens, int alteracaoVida,
             Scanner object) {
         this.nome = nome;
         this.texto = texto;
-        this.escolhas = escolhas;
         this.personagens = personagens;
         this.alteracaoVida = alteracaoVida;
         this.object = object;
+        this.escolhas = new ArrayList<Escolha>();
     }
 
     //Metodo mostrar, ao ser chamado a função vai mostrar tudo que estiver dentro dele ou seja, dentro de cada capitulo.
@@ -26,16 +27,25 @@ public class Capitulo1 {
         System.out.println(this.escolhas);
         
         
-    if (this.escolhas != null){
-        for (String escolha : escolhas) {
-            System.out.println(escolha);
+    if (this.escolhas != null)
+    {
+        for (Escolha escolha : escolhas)
+        {
+            System.out.println(escolha.texto);
         }
-        System.out.println();
+    }       
+    System.out.println();
+
+    if (escolhas.size() > 0)
+    {
+        int escolha = escolher();
+        this.escolhas.get(escolha).proximo.mostrar();
     }
 
     }
     
-    int escolher() {
+    int escolher() 
+    {
         int retorno = -1;
         if (this.escolhas != null) 
         {
@@ -45,19 +55,17 @@ public class Capitulo1 {
                 String escolhasUsuario = this.object.nextLine();
                 
                 int retornoInicial = 0;
-                for (String escolha : escolhas)
+                for (Escolha escolha : this.escolhas) 
                 {
-                    if (escolhas.equals(this.escolhas)) 
+                    if (escolha.texto.equals(escolhasUsuario)) 
                     {
-                    retorno = retornoInicial;
-                    retornoInicial ++;
+                        retorno = retornoInicial;
                     }
+                    retornoInicial++;
                 }
-
             }
-                System.out.println();
-
-        }          
-            return retorno;
+            System.out.println();
+        }
+        return retorno;
     }
 }
